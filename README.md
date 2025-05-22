@@ -15,6 +15,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 pip install librosa
 pip install --upgrade datasets
 pip install peft
+pip install audiocraft
 ```
 
 ##### 运行推理（生成音乐）
@@ -28,3 +29,8 @@ MusicCap数据集需要下载并处理。找到了下载和处理的脚本 `down
 找到了 MusicBench (https://huggingface.co/datasets/amaai-lab/MusicBench/tree/main) 数据集。需要下载里面的压缩文件，解压并放在 `/data` 目录。
 
 微调代码已备，跑一遍要先读数据集（十几分钟）所以有点慢。
+
+
+## 模型架构
+
+模型有两个encoder（分别是text encoder和audio encoder）和一个decoder。
