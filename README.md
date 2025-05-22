@@ -28,9 +28,12 @@ MusicCap数据集需要下载并处理。找到了下载和处理的脚本 `down
 
 找到了 MusicBench (https://huggingface.co/datasets/amaai-lab/MusicBench/tree/main) 数据集。需要下载里面的压缩文件，解压并放在 `/data` 目录。
 
-微调代码已备，跑一遍要先读数据集（十几分钟）所以有点慢。
-
+微调代码已跑通。预处理数据集需要大约一小时，有点慢。
 
 ## 模型架构
 
 模型有两个encoder（分别是text encoder和audio encoder）和一个decoder。
+
+text encoder 把文本变为 token，audio encoder 把音频变为 audio token（每个token是高维向量空间中离散的向量）。
+
+优化的目标是生成的 audio token 和 ground truth 的 audio token 之间的 cross entropy 尽可能低，类似语言模型的学习方式。
